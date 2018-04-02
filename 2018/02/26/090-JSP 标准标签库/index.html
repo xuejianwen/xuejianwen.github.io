@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/blog/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/blog/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.0.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.0.4" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '6.0.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="1758,java基础," />
+
+
+<meta name="description" content="JSTL是一个 JSP 标签集合，它封装了 JSP 应用的通用核心功能。 它的出现，是因为人们开始注重软件的分层设计，不希望在 JSP 页面中出现 JAVA 逻辑代码。同时也由于自定义标签的开发难度较大、不利于技术的标准化，因此产生了JSTL。JSTL和EL 的结合，基本可以让页面再无 &amp;lt;% %&amp;gt; 代码。JSTL 标准标签库可分为五类：[其实,一般就用三种]  核心标签库共 14 个，">
+<meta name="keywords" content="1758,java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSP 标准标签库（JSP Standard Tag Library）">
+<meta property="og:url" content="http://yoursite.com/2018/02/26/090-JSP 标准标签库/index.html">
+<meta property="og:site_name" content="学习博客">
+<meta property="og:description" content="JSTL是一个 JSP 标签集合，它封装了 JSP 应用的通用核心功能。 它的出现，是因为人们开始注重软件的分层设计，不希望在 JSP 页面中出现 JAVA 逻辑代码。同时也由于自定义标签的开发难度较大、不利于技术的标准化，因此产生了JSTL。JSTL和EL 的结合，基本可以让页面再无 &amp;lt;% %&amp;gt; 代码。JSTL 标准标签库可分为五类：[其实,一般就用三种]  核心标签库共 14 个，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-02T08:50:45.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSP 标准标签库（JSP Standard Tag Library）">
+<meta name="twitter:description" content="JSTL是一个 JSP 标签集合，它封装了 JSP 应用的通用核心功能。 它的出现，是因为人们开始注重软件的分层设计，不希望在 JSP 页面中出现 JAVA 逻辑代码。同时也由于自定义标签的开发难度较大、不利于技术的标准化，因此产生了JSTL。JSTL和EL 的结合，基本可以让页面再无 &amp;lt;% %&amp;gt; 代码。JSTL 标准标签库可分为五类：[其实,一般就用三种]  核心标签库共 14 个，">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/26/090-JSP 标准标签库/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>JSP 标准标签库（JSP Standard Tag Library） | 学习博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">有志者事竟成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/02/26/090-JSP 标准标签库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JSP 标准标签库（JSP Standard Tag Library）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T13:23:50+08:00">2018-02-26</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/categories/java基础/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/categories/java基础/JSP/" itemprop="url" rel="index"><span itemprop="name">JSP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JSTL是一个 JSP 标签集合，它封装了 JSP 应用的通用核心功能。 它的出现，是因为人们开始注重软件的分层设计，不希望在 JSP 页面中出现 JAVA 逻辑代码。同时也由于自定义标签的开发难度较大、不利于技术的标准化，因此产生了JSTL。<strong>JSTL和EL</strong> 的结合，基本可以让页面再无 &lt;% %&gt; 代码。<br>JSTL 标准标签库可分为五类：<strong>[其实,一般就用三种]</strong> </p>
+<h2 id="核心标签库"><a href="#核心标签库" class="headerlink" title="核心标签库"></a>核心标签库</h2><p>共 14 个，从功能上可以分为 4 类。<br>引用方法： 引入方式: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jstl/core_rt"</span> %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="表达式控制"><a href="#表达式控制" class="headerlink" title="表达式控制"></a>表达式控制</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;c:out&gt;</td>
+<td>用于显示数据，就像 &lt;%= %&gt; ，区别在于 &lt;c:out&gt; 标签可以直接通过 . 操作符来访问属性</td>
+</tr>
+<tr>
+<td>&lt;c:set &gt;</td>
+<td>用于保存数据</td>
+</tr>
+<tr>
+<td>&lt;c:remove&gt;</td>
+<td>用于删除数据</td>
+</tr>
+<tr>
+<td>&lt;c:catch &gt;</td>
+<td>用来处理产生错误的异常状况，并且将错误信息储存起来</td>
+</tr>
+</tbody>
+</table>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;c:if &gt;</td>
+<td>与我们在一般程序中用的 if 一样,但是没有else操作,变相实现</td>
+</tr>
+<tr>
+<td>&lt;c:choose &gt;</td>
+<td>本身只当做 &lt;c:when&gt; 和 &lt;c:otherwise&gt; 的父标签,相当于 switch 标签</td>
+</tr>
+<tr>
+<td>&lt;c:when&gt;</td>
+<td>&lt;c:choose&gt; 的子标签，用来判断条件是否成立</td>
+</tr>
+<tr>
+<td>&lt;c:otherwise&gt;</td>
+<td>&lt;c:choose&gt; 的子标签，接在 &lt;c:when&gt; 标签后，当 &lt;c:when&gt; 标签判断为 false 时被执行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="循环-重点"><a href="#循环-重点" class="headerlink" title="循环[重点]"></a>循环[重点]</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;c:forEach&gt;</td>
+<td>基础迭代标签，接受多种集合类型</td>
+</tr>
+<tr>
+<td>&lt;c:forTokens&gt;</td>
+<td>根据指定的分隔符来分隔内容并迭代输出</td>
+</tr>
+</tbody>
+</table>
+<h3 id="URL操作"><a href="#URL操作" class="headerlink" title="URL操作"></a>URL操作</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;c:import&gt;</td>
+<td>检索一个绝对或相对 URL，然后将其内容暴露给页面,可以替换JSP的动态包含</td>
+</tr>
+<tr>
+<td>&lt;c:redirect&gt;</td>
+<td>使用可选的查询参数来创造一个 URL</td>
+</tr>
+<tr>
+<td>&lt;c:url &gt;</td>
+<td>重定向至一个新的 URL</td>
+</tr>
+<tr>
+<td>&lt;c:param &gt;</td>
+<td>用来给包含或重定向的页面传递参数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="格式化标签库"><a href="#格式化标签库" class="headerlink" title="格式化标签库"></a>格式化标签库</h2><p>用于格式化并输出文本、日期、时间、数字，这里只介绍最最最常用的两个标签,引用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@taglib prefix=<span class="string">"fmt"</span> uri=<span class="string">"http://java.sun.com/jstl/fmt_rt"</span> %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="格式化数字"><a href="#格式化数字" class="headerlink" title="格式化数字"></a>格式化数字</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;fmt:formatNumber&gt;</td>
+<td>使用指定的格式或精度格式化数字,</td>
+</tr>
+</tbody>
+</table>
+<p><strong>涉及到钱的时候,不要使用float/double,还有使用银行家四舍五入方式</strong></p>
+<h3 id="格式化日期"><a href="#格式化日期" class="headerlink" title="格式化日期"></a>格式化日期</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;fmt:formatDate&gt;</td>
+<td>使用指定的风格或模式格式化日期和时间</td>
+</tr>
+</tbody>
+</table>
+<p><strong>yyyy mm MM dd H h ss</strong> </p>
+<h2 id="函数标签库"><a href="#函数标签库" class="headerlink" title="函数标签库"></a>函数标签库</h2><p>大部分都是通用的字符串处理函数，用于配合 EL 表达式使用。引用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@taglib prefix=<span class="string">"fn"</span> uri=<span class="string">"http://java.sun.com/jstl/functions_rt"</span> %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fn:contains()</td>
+<td>测试输入的字符串是否包含指定的子串,如: ${fn:contains(“ABC”, “a”)}</td>
+</tr>
+<tr>
+<td>fn:containsIgnoreCase()</td>
+<td>测试输入的字符串是否包含指定的子串，大小写不敏感,如: ${fn:containsIgnoreCase(“ABC”, “a”)}</td>
+</tr>
+<tr>
+<td>fn:endsWith()</td>
+<td>测试输入的字符串是否以指定的后缀结尾,如:${fn:endsWith(“ABC”, “bc”)}</td>
+</tr>
+<tr>
+<td>fn:startsWith()</td>
+<td>测试输入的字符串是否以指定的前缀开始,如:${fn:startsWith(“ABC”, “ab”)}</td>
+</tr>
+<tr>
+<td>fn:escapeXml()</td>
+<td>用于将所有特殊字符转化为字符实体码。它只包含一个 string 参数，返回一个 String 类型的值</td>
+</tr>
+<tr>
+<td>fn:indexOf()</td>
+<td>用于取得子字符串与源字符串匹配的开始位置，若子字符串与源字符串中的内容没有匹配成功将返回“ -1 ”。它包括 string 和 substring 两个参数，返回结果为 int 类型.如:${fn:indexOf(“ABCD”,”aBC”)}</td>
+</tr>
+<tr>
+<td>fn:join()</td>
+<td>将数组中的元素合成一个字符串然后输出</td>
+</tr>
+<tr>
+<td>fn:length()</td>
+<td>返回字符串长度</td>
+</tr>
+<tr>
+<td>fn:replace()</td>
+<td>将输入字符串中指定的位置替换为指定的字符串然后返回</td>
+</tr>
+<tr>
+<td>fn:split()</td>
+<td>将字符串用指定的分隔符分隔然后组成一个子字符串数组并返回</td>
+</tr>
+<tr>
+<td>fn:substring()</td>
+<td>返回字符串的子集,如:${fn:substring(“ABC”,”1”,”2”)}</td>
+</tr>
+<tr>
+<td>fn:substringAfter()</td>
+<td>返回字符串在指定子串之后的子集,如:${fn:substringAfter(“ABCD”,”BC”)}</td>
+</tr>
+<tr>
+<td>fn:substringBefore()</td>
+<td>返回字符串在指定子串之前的子集,如:${fn:substringBefore(“ABC”,”1”,”2”)}</td>
+</tr>
+<tr>
+<td>fn:toLowerCase()</td>
+<td>将字符串中的字符转为小写</td>
+</tr>
+<tr>
+<td>fn:toUpperCase()</td>
+<td>将字符串中的字符转为大写</td>
+</tr>
+<tr>
+<td>fn:trim()</td>
+<td>移除首位的空白符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SQL标库"><a href="#SQL标库" class="headerlink" title="SQL标库"></a>SQL标库</h2><p>（之后补充）</p>
+<h2 id="XML标签库"><a href="#XML标签库" class="headerlink" title="XML标签库"></a>XML标签库</h2><p>（之后补充）</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/1758/" rel="tag"># 1758</a>
+          
+            <a href="/blog/tags/java基础/" rel="tag"># java基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/02/26/012-工具类ToStringBuilder简介/" rel="next" title="Spring工具类ToStringBuilder用法简介">
+                <i class="fa fa-chevron-left"></i> Spring工具类ToStringBuilder用法简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/02/26/020-SessionMemcache/" rel="prev" title="集群tomcat环境下的Session共享">
+                集群tomcat环境下的Session共享 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">fate</p>
+              <p class="site-description motion-element" itemprop="description">整理开发过程中的学习资料</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/blog/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心标签库"><span class="nav-number">1.</span> <span class="nav-text">核心标签库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式控制"><span class="nav-number">1.1.</span> <span class="nav-text">表达式控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制"><span class="nav-number">1.2.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环-重点"><span class="nav-number">1.3.</span> <span class="nav-text">循环[重点]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL操作"><span class="nav-number">1.4.</span> <span class="nav-text">URL操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化标签库"><span class="nav-number">2.</span> <span class="nav-text">格式化标签库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化数字"><span class="nav-number">2.1.</span> <span class="nav-text">格式化数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化日期"><span class="nav-number">2.2.</span> <span class="nav-text">格式化日期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数标签库"><span class="nav-number">3.</span> <span class="nav-text">函数标签库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串处理"><span class="nav-number">3.1.</span> <span class="nav-text">字符串处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL标库"><span class="nav-number">4.</span> <span class="nav-text">SQL标库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML标签库"><span class="nav-number">5.</span> <span class="nav-text">XML标签库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fate</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">hexo</div>
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+
+  <div class="theme-info"></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.0.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=6.0.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.0.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.0.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.0.4"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

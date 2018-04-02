@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/blog/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/blog/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.0.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.0.4" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '6.0.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="1758,开发环境," />
+
+
+<meta name="description" content="JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，然后新建变量： 1JAVA_HOME 配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\">
+<meta name="keywords" content="1758,开发环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发环境搭建">
+<meta property="og:url" content="http://yoursite.com/2018/02/26/190-开发环境搭建/index.html">
+<meta property="og:site_name" content="学习博客">
+<meta property="og:description" content="JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，然后新建变量： 1JAVA_HOME 配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-02T08:51:13.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开发环境搭建">
+<meta name="twitter:description" content="JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，然后新建变量： 1JAVA_HOME 配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/26/190-开发环境搭建/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>开发环境搭建 | 学习博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">有志者事竟成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/02/26/190-开发环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">开发环境搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T13:23:50+08:00">2018-02-26</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JDK配置"><a href="#JDK配置" class="headerlink" title="JDK配置"></a>JDK配置</h1><hr>
+<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>项目目前使用jdk1.8</p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">jdk下载地址</a> </p>
+<p>版本：1.8 64位</p>
+<p><strong>注意：jdk区分32位和64位</strong></p>
+<h2 id="配置java环境变量"><a href="#配置java环境变量" class="headerlink" title="配置java环境变量"></a>配置java环境变量</h2><p>以windows7为例，配置java环境变量:</p>
+<p>右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后新建变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME</span><br></pre></td></tr></table></figure>
+<p>配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\Java\jdk1.8.0_101，<br>在Path变量末尾追加java执行目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\bin;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：每个path需要以英文半角符 <code>;</code> 进行分割。</strong></p>
+<h1 id="maven安装配置"><a href="#maven安装配置" class="headerlink" title="maven安装配置"></a>maven安装配置</h1><h2 id="maven下载安装"><a href="#maven下载安装" class="headerlink" title="maven下载安装"></a>maven下载安装</h2><p>项目目前使用<em>maven</em>作为项目管理工具</p>
+<p><a href="http://mirrors.cnnic.cn/apache//maven/maven-3/3.2.5/binaries/" target="_blank" rel="noopener">maven下载地址</a> </p>
+<p>版本：3.2.5</p>
+<p>解压到指定目录之后需要配置环境变量。</p>
+<h2 id="maven环境变量配置"><a href="#maven环境变量配置" class="headerlink" title="maven环境变量配置"></a>maven环境变量配置</h2><p>以windows7为例，配置maven环境变量:<br>右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后新建变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M2_HOME</span><br></pre></td></tr></table></figure>
+<p>配置该值为maven解压的目录，在Path变量末尾追加maven执行目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%M2_HOME%\bin;</span><br></pre></td></tr></table></figure>
+<h2 id="修改jar包仓库配置"><a href="#修改jar包仓库配置" class="headerlink" title="修改jar包仓库配置"></a>修改jar包仓库配置</h2><p>进入maven解压目录，找到conf目录并进入，修改settings.xml，按照个人需求，修改本地仓库位置，默认位置在C盘，建议修改为其他目录。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>E:\Java\m2\repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同时建议修改仓库镜像为阿里云镜像，在mirrors的子节点添加以下信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="maven打包命令"><a href="#maven打包命令" class="headerlink" title="maven打包命令"></a>maven打包命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行该命令既可，以下为参数详解</span></span><br><span class="line">mvn clean package install -U -Dmaven.test.skip=<span class="literal">true</span></span><br><span class="line"><span class="comment">#清除</span></span><br><span class="line">mvn clean</span><br><span class="line"><span class="comment">#打包</span></span><br><span class="line">mvn package</span><br><span class="line"><span class="comment">#强制检查更新</span></span><br><span class="line">install -U</span><br><span class="line"><span class="comment">#跳过测试</span></span><br><span class="line">-Dmaven.test.skip=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h1 id="IDE安装"><a href="#IDE安装" class="headerlink" title="IDE安装"></a>IDE安装</h1><p>根据个人喜好，使用对应的ide，项目推介使用IDE为：sts(spring toolit suite，一个集成spring开发插件并优化开发流程的eclipse版本)</p>
+<p><a href="http://spring.io/tools/sts/legacy" target="_blank" rel="noopener">下载地址</a> </p>
+<p><strong>注意：IDE区分32位和64位</strong></p>
+<h1 id="IDE配置"><a href="#IDE配置" class="headerlink" title="IDE配置"></a>IDE配置</h1><blockquote>
+<p>导入项目之前，需要先修改maven配置文件。</p>
+</blockquote>
+<p>点击<code>windows</code>|<code>preferences</code>|<code>maven</code>|<code>usersettings</code>,修改GlobalSettings为maven settings.xml文件所在目录，点击更新，看到Local Repository更新为自定义目录即可。</p>
+<h1 id="tomcat配置"><a href="#tomcat配置" class="headerlink" title="tomcat配置"></a>tomcat配置</h1><p>项目使用web容器为：tomcat</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.28/bin/" target="_blank" rel="noopener">tomcat下载地址</a> </p>
+<p>版本：8.5</p>
+<p><strong>注意：tomcat区分32位和64位</strong></p>
+<h1 id="版本控制工具"><a href="#版本控制工具" class="headerlink" title="版本控制工具"></a>版本控制工具</h1><p>项目使用git进行版本控制</p>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a> </p>
+<p>可视化git工具:SourceTree</p>
+<p><a href="https://www.sourcetreeapp.com/download/" target="_blank" rel="noopener">下载地址</a> </p>
+<h2 id="获取项目源代码"><a href="#获取项目源代码" class="headerlink" title="获取项目源代码"></a>获取项目源代码</h2><p>获取远程代码仓库bitbucket代码克隆路径，使用git下载到本地。</p>
+<p>执行项目<code>base-skeleton</code>中的<code>maven_install.sh</code>命令，将第三方jar包发布到本地库中。</p>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>项目使用mysql作为数据存储</p>
+<h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">下载地址</a> </p>
+<p>Version:5.6</p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>以windows7为例，右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后选择<code>PATH</code>,在其后面添加(注意是追加,不是覆盖): 你的mysql bin文件夹的路径 (如:C:\Program Files\MySQL\MySQL Server 5.6\bin)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=.......;C:\Program Files\MySQL\MySQL Server 5.6\bin</span><br></pre></td></tr></table></figure>
+<p>mysql-5.6.X默认的配置文件是在C:\Program Files\MySQL\MySQL Server 5.6\my-default.ini，或者自己建立一个my.ini文件，<br>在其中修改或添加配置： </p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">basedir</span>=C:\Program Files\MySQL\MySQL Server <span class="number">5.6</span>（mysql所在目录） </span><br><span class="line"><span class="attr">datadir</span>=C:\Program Files\MySQL\MySQL Server <span class="number">5.6</span>\data （mysql所在目录\data）</span><br><span class="line"><span class="comment"># 以下配置为方便导入mysql大数据的配置</span></span><br><span class="line"><span class="attr">join_buffer_size</span> = <span class="number">128</span>M</span><br><span class="line"><span class="attr">sort_buffer_size</span> = <span class="number">16</span>M</span><br><span class="line"><span class="attr">read_rnd_buffer_size</span> = <span class="number">32</span>M</span><br></pre></td></tr></table></figure>
+<h2 id="启动mysql服务"><a href="#启动mysql服务" class="headerlink" title="启动mysql服务"></a>启动mysql服务</h2><p>以管理员身份运行cmd,执行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Program Files\MySQL\MySQL Server 5.6\bin </span><br><span class="line">mysqld -install</span><br><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>必须进入mysql的bin文件夹，不管有没有配置过环境变量，也要进入bin文件夹，否则之后启动服务仍然会报错误</strong></li>
+<li><strong>如果不用管理员身份运行，将会因为权限不够而出现错误：Install/Remove of the Service Denied!</strong></li>
+</ol>
+<h2 id="安装数据库设计工具"><a href="#安装数据库设计工具" class="headerlink" title="安装数据库设计工具"></a>安装数据库设计工具</h2><p>navicat:  数据库设计工具</p>
+<p>导入项目中的数据库脚本game_store.sql文件</p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><h1 id="远程连接工具"><a href="#远程连接工具" class="headerlink" title="远程连接工具"></a>远程连接工具</h1><h1 id="ftp传输工具"><a href="#ftp传输工具" class="headerlink" title="ftp传输工具"></a>ftp传输工具</h1><h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h1 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h1><h1 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h1><h1 id="mybatis-generator-eclipse插件的安装"><a href="#mybatis-generator-eclipse插件的安装" class="headerlink" title="mybatis generator eclipse插件的安装"></a>mybatis generator eclipse插件的安装</h1><p>mybatis generator 可以提高开发速度，这个插件可以自动生成代码，创建DAO层相关代码。</p>
+<p>打开MyBatis_Generator_1.3.1.zip文件并解压，将解压得到的2个文件夹<code>features</code>和<code>plugins</code> copy到 eclipse的安装目录下。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/1758/" rel="tag"># 1758</a>
+          
+            <a href="/blog/tags/开发环境/" rel="tag"># 开发环境</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/02/26/02-Callable/" rel="next" title="多线程之Callable接口">
+                <i class="fa fa-chevron-left"></i> 多线程之Callable接口
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/02/26/101-sql优化/" rel="prev" title="Sql优化">
+                Sql优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">fate</p>
+              <p class="site-description motion-element" itemprop="description">整理开发过程中的学习资料</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/blog/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK配置"><span class="nav-number">1.</span> <span class="nav-text">JDK配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装JDK"><span class="nav-number">1.1.</span> <span class="nav-text">安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置java环境变量"><span class="nav-number">1.2.</span> <span class="nav-text">配置java环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#maven安装配置"><span class="nav-number">2.</span> <span class="nav-text">maven安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#maven下载安装"><span class="nav-number">2.1.</span> <span class="nav-text">maven下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven环境变量配置"><span class="nav-number">2.2.</span> <span class="nav-text">maven环境变量配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改jar包仓库配置"><span class="nav-number">2.3.</span> <span class="nav-text">修改jar包仓库配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven打包命令"><span class="nav-number">2.4.</span> <span class="nav-text">maven打包命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE安装"><span class="nav-number">3.</span> <span class="nav-text">IDE安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE配置"><span class="nav-number">4.</span> <span class="nav-text">IDE配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tomcat配置"><span class="nav-number">5.</span> <span class="nav-text">tomcat配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本控制工具"><span class="nav-number">6.</span> <span class="nav-text">版本控制工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取项目源代码"><span class="nav-number">6.1.</span> <span class="nav-text">获取项目源代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">7.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装mysql"><span class="nav-number">7.1.</span> <span class="nav-text">安装mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-number">7.2.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动mysql服务"><span class="nav-number">7.3.</span> <span class="nav-text">启动mysql服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装数据库设计工具"><span class="nav-number">7.4.</span> <span class="nav-text">安装数据库设计工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">7.5.</span> <span class="nav-text">TODO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程连接工具"><span class="nav-number">8.</span> <span class="nav-text">远程连接工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ftp传输工具"><span class="nav-number">9.</span> <span class="nav-text">ftp传输工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis"><span class="nav-number">10.</span> <span class="nav-text">redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#memcached"><span class="nav-number">11.</span> <span class="nav-text">memcached</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zookeeper"><span class="nav-number">12.</span> <span class="nav-text">zookeeper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mybatis-generator-eclipse插件的安装"><span class="nav-number">13.</span> <span class="nav-text">mybatis generator eclipse插件的安装</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fate</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">hexo</div>
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+
+  <div class="theme-info"></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.0.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=6.0.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.0.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.0.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.0.4"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

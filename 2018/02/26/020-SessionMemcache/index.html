@@ -107,27 +107,28 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="1758,java web," />
 
 
-<meta name="description" content="fatejava开发工程师码云: https://gitee.com/fatesx/eventsgithub: https://github.com/xuejianwen">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="作者：李乾  使用Memcache共享集群中的SESSION在Web服务开发中，时常会使用到SESSION，默认情况下会使用Web容器自身的SessionManager来管理session，但在集群环境下，会面临SESSION共享的问题。 以tomcat为例，可以自己写tomcat的扩展来保存SESSION到memcached。 这里推荐使用memcached-session-manager这个">
+<meta name="keywords" content="1758,java web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集群tomcat环境下的Session共享">
+<meta property="og:url" content="http://yoursite.com/2018/02/26/020-SessionMemcache/index.html">
 <meta property="og:site_name" content="学习博客">
-<meta property="og:description" content="fatejava开发工程师码云: https://gitee.com/fatesx/eventsgithub: https://github.com/xuejianwen">
+<meta property="og:description" content="作者：李乾  使用Memcache共享集群中的SESSION在Web服务开发中，时常会使用到SESSION，默认情况下会使用Web容器自身的SessionManager来管理session，但在集群环境下，会面临SESSION共享的问题。 以tomcat为例，可以自己写tomcat的扩展来保存SESSION到memcached。 这里推荐使用memcached-session-manager这个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-02T03:30:09.914Z">
+<meta property="og:updated_time" content="2018-04-02T08:50:39.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="fatejava开发工程师码云: https://gitee.com/fatesx/eventsgithub: https://github.com/xuejianwen">
+<meta name="twitter:title" content="集群tomcat环境下的Session共享">
+<meta name="twitter:description" content="作者：李乾  使用Memcache共享集群中的SESSION在Web服务开发中，时常会使用到SESSION，默认情况下会使用Web容器自身的SessionManager来管理session，但在集群环境下，会面临SESSION共享的问题。 以tomcat为例，可以自己写tomcat的扩展来保存SESSION到memcached。 这里推荐使用memcached-session-manager这个">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/26/020-SessionMemcache/"/>
 
 
 
@@ -136,7 +137,7 @@
     sidebar: "",
   };
 </script>
-  <title>关于 | 学习博客</title>
+  <title>集群tomcat环境下的Session共享 | 学习博客</title>
   
 
 
@@ -275,49 +276,198 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/02/26/020-SessionMemcache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">关于</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="fate"><a href="#fate" class="headerlink" title="fate"></a>fate</h2><p>java开发工程师<br>码云: <a href="https://gitee.com/fatesx/events" target="_blank" rel="noopener">https://gitee.com/fatesx/events</a><br>github: <a href="https://github.com/xuejianwen" target="_blank" rel="noopener">https://github.com/xuejianwen</a></p>
-
+          <h1 class="post-title" itemprop="name headline">集群tomcat环境下的Session共享</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T13:23:50+08:00">2018-02-26</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/categories/java-web/" itemprop="url" rel="index"><span itemprop="name">java web</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <blockquote>
+<p>作者：李乾</p>
+</blockquote>
+<h2 id="使用Memcache共享集群中的SESSION"><a href="#使用Memcache共享集群中的SESSION" class="headerlink" title="使用Memcache共享集群中的SESSION"></a>使用Memcache共享集群中的SESSION</h2><p>在Web服务开发中，时常会使用到SESSION，默认情况下会使用Web容器自身的SessionManager来管理session，但在集群环境下，会面临SESSION共享的问题。</p>
+<p>以tomcat为例，可以自己写tomcat的扩展来保存SESSION到memcached。</p>
+<p>这里推荐使用memcached-session-manager这个开源项目（<a href="http://code.google.com/p/memcached-session-manager/" target="_blank" rel="noopener">http://code.google.com/p/memcached-session-manager/</a> ），下面简称msm。</p>
+<p>下面分步实现基于tomcat集群配置：</p>
+<blockquote>
+<p>此配置已经过验证，并在1758的多个Web服务中使用，如：支付服务，H5服务，MiniWeb服务。</p>
+</blockquote>
+<p>1758线上环境（jdk1.6， tomcat7.0） </p>
+<h2 id="1、根据环境下载相应依赖包（针对jdk1-6版本）"><a href="#1、根据环境下载相应依赖包（针对jdk1-6版本）" class="headerlink" title="1、根据环境下载相应依赖包（针对jdk1.6版本）"></a>1、根据环境下载相应依赖包（针对jdk1.6版本）</h2><p>memcached-session-manager-1.6.0.jar<br>memcached-session-manager-tc7-1.6.0.jar<br>msm-javolution-serializer-1.6.0.jar<br>javolution-5.4.3.1.jar<br>spymemcached-2.7.3.jar</p>
+<p>如果是jdk1.7，需要下载相对应的jar包。</p>
+<h2 id="2、部署依赖包"><a href="#2、部署依赖包" class="headerlink" title="2、部署依赖包"></a>2、部署依赖包</h2><p>将这5个包放到$TOMCAT_HOME/lib目录下</p>
+<h2 id="3、修改配置"><a href="#3、修改配置" class="headerlink" title="3、修改配置"></a>3、修改配置</h2><p>修改$TOMCAT_HOME/conf/context.xml，在context节点下增加如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Manager className=&quot;de.javakaffee.web.msm.MemcachedBackupSessionManager&quot;</span><br><span class="line">memcachedNodes=&quot;localhost:11211&quot;</span><br><span class="line">sticky=&quot;false&quot;</span><br><span class="line">memcachedProtocol=&quot;binary&quot;</span><br><span class="line">sessionBackupAsync=&quot;false&quot;</span><br><span class="line">requestUriIgnorePattern=&quot;.*\.(png|gif|jpg|css|js)$&quot;</span><br><span class="line">transcoderFactoryClass=&quot;de.javakaffee.web.msm.serializer.javolution.JavolutionTranscoderFactory&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的memcachedNodes是填写memcached节点,多个节点时可以以空隔分开，如:<br>n1:localhost:11211 n2:localhost:11212</p>
+<h2 id="4、验证"><a href="#4、验证" class="headerlink" title="4、验证"></a>4、验证</h2><p>同样的配置启动两个TOMCAT,即可解决SESSION的共享问题.</p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/1758/" rel="tag"># 1758</a>
+          
+            <a href="/blog/tags/java-web/" rel="tag"># java web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/02/26/090-JSP 标准标签库/" rel="next" title="JSP 标准标签库（JSP Standard Tag Library）">
+                <i class="fa fa-chevron-left"></i> JSP 标准标签库（JSP Standard Tag Library）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/02/26/011-ExcleExport/" rel="prev" title="excel导出">
+                excel导出 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -453,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#fate"><span class="nav-number">1.</span> <span class="nav-text">fate</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Memcache共享集群中的SESSION"><span class="nav-number">1.</span> <span class="nav-text">使用Memcache共享集群中的SESSION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、根据环境下载相应依赖包（针对jdk1-6版本）"><span class="nav-number">2.</span> <span class="nav-text">1、根据环境下载相应依赖包（针对jdk1.6版本）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、部署依赖包"><span class="nav-number">3.</span> <span class="nav-text">2、部署依赖包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、修改配置"><span class="nav-number">4.</span> <span class="nav-text">3、修改配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、验证"><span class="nav-number">5.</span> <span class="nav-text">4、验证</span></a></li></ol></div>
             
 
           </div>
