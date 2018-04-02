@@ -370,66 +370,22 @@
       
         
           
-            <h1 id="JDK配置"><a href="#JDK配置" class="headerlink" title="JDK配置"></a>JDK配置</h1><hr>
-<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>项目目前使用jdk1.8</p>
-<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">jdk下载地址</a> </p>
-<p>版本：1.8 64位</p>
-<p><strong>注意：jdk区分32位和64位</strong></p>
-<h2 id="配置java环境变量"><a href="#配置java环境变量" class="headerlink" title="配置java环境变量"></a>配置java环境变量</h2><p>以windows7为例，配置java环境变量:</p>
-<p>右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后新建变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME</span><br></pre></td></tr></table></figure>
-<p>配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\Java\jdk1.8.0_101，<br>在Path变量末尾追加java执行目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\bin;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：每个path需要以英文半角符 <code>;</code> 进行分割。</strong></p>
-<h1 id="maven安装配置"><a href="#maven安装配置" class="headerlink" title="maven安装配置"></a>maven安装配置</h1><h2 id="maven下载安装"><a href="#maven下载安装" class="headerlink" title="maven下载安装"></a>maven下载安装</h2><p>项目目前使用<em>maven</em>作为项目管理工具</p>
-<p><a href="http://mirrors.cnnic.cn/apache//maven/maven-3/3.2.5/binaries/" target="_blank" rel="noopener">maven下载地址</a> </p>
-<p>版本：3.2.5</p>
-<p>解压到指定目录之后需要配置环境变量。</p>
-<h2 id="maven环境变量配置"><a href="#maven环境变量配置" class="headerlink" title="maven环境变量配置"></a>maven环境变量配置</h2><p>以windows7为例，配置maven环境变量:<br>右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后新建变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M2_HOME</span><br></pre></td></tr></table></figure>
-<p>配置该值为maven解压的目录，在Path变量末尾追加maven执行目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%M2_HOME%\bin;</span><br></pre></td></tr></table></figure>
-<h2 id="修改jar包仓库配置"><a href="#修改jar包仓库配置" class="headerlink" title="修改jar包仓库配置"></a>修改jar包仓库配置</h2><p>进入maven解压目录，找到conf目录并进入，修改settings.xml，按照个人需求，修改本地仓库位置，默认位置在C盘，建议修改为其他目录。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>E:\Java\m2\repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>同时建议修改仓库镜像为阿里云镜像，在mirrors的子节点添加以下信息</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="maven打包命令"><a href="#maven打包命令" class="headerlink" title="maven打包命令"></a>maven打包命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行该命令既可，以下为参数详解</span></span><br><span class="line">mvn clean package install -U -Dmaven.test.skip=<span class="literal">true</span></span><br><span class="line"><span class="comment">#清除</span></span><br><span class="line">mvn clean</span><br><span class="line"><span class="comment">#打包</span></span><br><span class="line">mvn package</span><br><span class="line"><span class="comment">#强制检查更新</span></span><br><span class="line">install -U</span><br><span class="line"><span class="comment">#跳过测试</span></span><br><span class="line">-Dmaven.test.skip=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h1 id="IDE安装"><a href="#IDE安装" class="headerlink" title="IDE安装"></a>IDE安装</h1><p>根据个人喜好，使用对应的ide，项目推介使用IDE为：sts(spring toolit suite，一个集成spring开发插件并优化开发流程的eclipse版本)</p>
-<p><a href="http://spring.io/tools/sts/legacy" target="_blank" rel="noopener">下载地址</a> </p>
-<p><strong>注意：IDE区分32位和64位</strong></p>
-<h1 id="IDE配置"><a href="#IDE配置" class="headerlink" title="IDE配置"></a>IDE配置</h1><blockquote>
-<p>导入项目之前，需要先修改maven配置文件。</p>
-</blockquote>
-<p>点击<code>windows</code>|<code>preferences</code>|<code>maven</code>|<code>usersettings</code>,修改GlobalSettings为maven settings.xml文件所在目录，点击更新，看到Local Repository更新为自定义目录即可。</p>
-<h1 id="tomcat配置"><a href="#tomcat配置" class="headerlink" title="tomcat配置"></a>tomcat配置</h1><p>项目使用web容器为：tomcat</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.28/bin/" target="_blank" rel="noopener">tomcat下载地址</a> </p>
-<p>版本：8.5</p>
-<p><strong>注意：tomcat区分32位和64位</strong></p>
-<h1 id="版本控制工具"><a href="#版本控制工具" class="headerlink" title="版本控制工具"></a>版本控制工具</h1><p>项目使用git进行版本控制</p>
-<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a> </p>
-<p>可视化git工具:SourceTree</p>
-<p><a href="https://www.sourcetreeapp.com/download/" target="_blank" rel="noopener">下载地址</a> </p>
-<h2 id="获取项目源代码"><a href="#获取项目源代码" class="headerlink" title="获取项目源代码"></a>获取项目源代码</h2><p>获取远程代码仓库bitbucket代码克隆路径，使用git下载到本地。</p>
-<p>执行项目<code>base-skeleton</code>中的<code>maven_install.sh</code>命令，将第三方jar包发布到本地库中。</p>
-<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>项目使用mysql作为数据存储</p>
-<h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">下载地址</a> </p>
-<p>Version:5.6</p>
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>以windows7为例，右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后选择<code>PATH</code>,在其后面添加(注意是追加,不是覆盖): 你的mysql bin文件夹的路径 (如:C:\Program Files\MySQL\MySQL Server 5.6\bin)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=.......;C:\Program Files\MySQL\MySQL Server 5.6\bin</span><br></pre></td></tr></table></figure>
-<p>mysql-5.6.X默认的配置文件是在C:\Program Files\MySQL\MySQL Server 5.6\my-default.ini，或者自己建立一个my.ini文件，<br>在其中修改或添加配置： </p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">basedir</span>=C:\Program Files\MySQL\MySQL Server <span class="number">5.6</span>（mysql所在目录） </span><br><span class="line"><span class="attr">datadir</span>=C:\Program Files\MySQL\MySQL Server <span class="number">5.6</span>\data （mysql所在目录\data）</span><br><span class="line"><span class="comment"># 以下配置为方便导入mysql大数据的配置</span></span><br><span class="line"><span class="attr">join_buffer_size</span> = <span class="number">128</span>M</span><br><span class="line"><span class="attr">sort_buffer_size</span> = <span class="number">16</span>M</span><br><span class="line"><span class="attr">read_rnd_buffer_size</span> = <span class="number">32</span>M</span><br></pre></td></tr></table></figure>
-<h2 id="启动mysql服务"><a href="#启动mysql服务" class="headerlink" title="启动mysql服务"></a>启动mysql服务</h2><p>以管理员身份运行cmd,执行</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Program Files\MySQL\MySQL Server 5.6\bin </span><br><span class="line">mysqld -install</span><br><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>必须进入mysql的bin文件夹，不管有没有配置过环境变量，也要进入bin文件夹，否则之后启动服务仍然会报错误</strong></li>
-<li><strong>如果不用管理员身份运行，将会因为权限不够而出现错误：Install/Remove of the Service Denied!</strong></li>
-</ol>
-<h2 id="安装数据库设计工具"><a href="#安装数据库设计工具" class="headerlink" title="安装数据库设计工具"></a>安装数据库设计工具</h2><p>navicat:  数据库设计工具</p>
-<p>导入项目中的数据库脚本game_store.sql文件</p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><h1 id="远程连接工具"><a href="#远程连接工具" class="headerlink" title="远程连接工具"></a>远程连接工具</h1><h1 id="ftp传输工具"><a href="#ftp传输工具" class="headerlink" title="ftp传输工具"></a>ftp传输工具</h1><h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h1 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h1><h1 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h1><h1 id="mybatis-generator-eclipse插件的安装"><a href="#mybatis-generator-eclipse插件的安装" class="headerlink" title="mybatis generator eclipse插件的安装"></a>mybatis generator eclipse插件的安装</h1><p>mybatis generator 可以提高开发速度，这个插件可以自动生成代码，创建DAO层相关代码。</p>
-<p>打开MyBatis_Generator_1.3.1.zip文件并解压，将解压得到的2个文件夹<code>features</code>和<code>plugins</code> copy到 eclipse的安装目录下。</p>
-
-          
+          JDK配置
+安装JDK项目目前使用jdk1.8
+jdk下载地址 
+版本：1.8 64位
+注意：jdk区分32位和64位
+配置java环境变量以windows7为例，配置java环境变量:
+右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，然后新建变量：
+1JA
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018/02/26/开发环境搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -551,17 +507,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018/02/26/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
