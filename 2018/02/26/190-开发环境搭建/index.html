@@ -110,18 +110,18 @@
   <meta name="keywords" content="1758,开发环境," />
 
 
-<meta name="description" content="JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，然后新建变量： 1JAVA_HOME 配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\">
+<meta name="description" content="整理了项目开发所需的环境搭建教程，可参考下文配置开发环境，示例为windows环境下的教程，其他环境请查询对应的教程。 JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows 7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，">
 <meta name="keywords" content="1758,开发环境">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发环境搭建">
 <meta property="og:url" content="http://yoursite.com/2018/02/26/190-开发环境搭建/index.html">
 <meta property="og:site_name" content="学习博客">
-<meta property="og:description" content="JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，然后新建变量： 1JAVA_HOME 配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\">
+<meta property="og:description" content="整理了项目开发所需的环境搭建教程，可参考下文配置开发环境，示例为windows环境下的教程，其他环境请查询对应的教程。 JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows 7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-02T08:51:13.797Z">
+<meta property="og:updated_time" content="2018-04-03T05:36:10.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发环境搭建">
-<meta name="twitter:description" content="JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，然后新建变量： 1JAVA_HOME 配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\">
+<meta name="twitter:description" content="整理了项目开发所需的环境搭建教程，可参考下文配置开发环境，示例为windows环境下的教程，其他环境请查询对应的教程。 JDK配置 安装JDK项目目前使用jdk1.8 jdk下载地址  版本：1.8 64位 注意：jdk区分32位和64位 配置java环境变量以windows 7为例，配置java环境变量: 右键计算机，依次点击：属性|高级系统设置|高级|环境变量，在弹出的对话框中，找到系统变量，">
 
 
 
@@ -374,26 +374,29 @@
       
 
       
-        <h1 id="JDK配置"><a href="#JDK配置" class="headerlink" title="JDK配置"></a>JDK配置</h1><hr>
+        <p>整理了项目开发所需的环境搭建教程，可参考下文配置开发环境，示例为windows环境下的教程，其他环境请查询对应的教程。</p>
+<h1 id="JDK配置"><a href="#JDK配置" class="headerlink" title="JDK配置"></a>JDK配置</h1><hr>
 <h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>项目目前使用jdk1.8</p>
 <p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">jdk下载地址</a> </p>
 <p>版本：1.8 64位</p>
 <p><strong>注意：jdk区分32位和64位</strong></p>
-<h2 id="配置java环境变量"><a href="#配置java环境变量" class="headerlink" title="配置java环境变量"></a>配置java环境变量</h2><p>以windows7为例，配置java环境变量:</p>
+<h2 id="配置java环境变量"><a href="#配置java环境变量" class="headerlink" title="配置java环境变量"></a>配置java环境变量</h2><p>以windows 7为例，配置java环境变量:</p>
 <p>右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后新建变量：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME</span><br></pre></td></tr></table></figure>
-<p>配置该值为jdk安装目录，例如jdk默认安装路径为C:\Program Files\Java\jdk1.8.0_101，<br>在Path变量末尾追加java执行目录</p>
+<p>配置该值为jdk安装目录，并在Path变量末尾追加JAVA_HOME的bin目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\bin;</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p><strong>注意：每个path需要以英文半角符 <code>;</code> 进行分割。</strong></p>
+</blockquote>
 <h1 id="maven安装配置"><a href="#maven安装配置" class="headerlink" title="maven安装配置"></a>maven安装配置</h1><h2 id="maven下载安装"><a href="#maven下载安装" class="headerlink" title="maven下载安装"></a>maven下载安装</h2><p>项目目前使用<em>maven</em>作为项目管理工具</p>
 <p><a href="http://mirrors.cnnic.cn/apache//maven/maven-3/3.2.5/binaries/" target="_blank" rel="noopener">maven下载地址</a> </p>
 <p>版本：3.2.5</p>
-<p>解压到指定目录之后需要配置环境变量。</p>
-<h2 id="maven环境变量配置"><a href="#maven环境变量配置" class="headerlink" title="maven环境变量配置"></a>maven环境变量配置</h2><p>以windows7为例，配置maven环境变量:<br>右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后新建变量：</p>
+<p>将安装包解压到指定目录之后需要配置环境变量。</p>
+<h2 id="maven环境变量配置"><a href="#maven环境变量配置" class="headerlink" title="maven环境变量配置"></a>maven环境变量配置</h2><p>以windows 7为例，配置maven环境变量:<br>右键计算机，依次点击：<code>属性</code>|<code>高级系统设置</code>|<code>高级</code>|<code>环境变量</code>，在弹出的对话框中，找到系统变量，然后新建变量：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M2_HOME</span><br></pre></td></tr></table></figure>
 <p>配置该值为maven解压的目录，在Path变量末尾追加maven执行目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%M2_HOME%\bin;</span><br></pre></td></tr></table></figure>
-<h2 id="修改jar包仓库配置"><a href="#修改jar包仓库配置" class="headerlink" title="修改jar包仓库配置"></a>修改jar包仓库配置</h2><p>进入maven解压目录，找到conf目录并进入，修改settings.xml，按照个人需求，修改本地仓库位置，默认位置在C盘，建议修改为其他目录。</p>
+<h2 id="修改jar包仓库配置"><a href="#修改jar包仓库配置" class="headerlink" title="修改jar包仓库配置"></a>修改jar包仓库配置</h2><p>进入maven解压目录，找到conf目录并进入，修改settings.xml，按照个人需求，修改本地仓库位置，仓库的默认位置在C盘，建议修改为其他目录。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>E:\Java\m2\repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>同时建议修改仓库镜像为阿里云镜像，在mirrors的子节点添加以下信息</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -424,12 +427,14 @@
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">basedir</span>=C:\Program Files\MySQL\MySQL Server <span class="number">5.6</span>（mysql所在目录） </span><br><span class="line"><span class="attr">datadir</span>=C:\Program Files\MySQL\MySQL Server <span class="number">5.6</span>\data （mysql所在目录\data）</span><br><span class="line"><span class="comment"># 以下配置为方便导入mysql大数据的配置</span></span><br><span class="line"><span class="attr">join_buffer_size</span> = <span class="number">128</span>M</span><br><span class="line"><span class="attr">sort_buffer_size</span> = <span class="number">16</span>M</span><br><span class="line"><span class="attr">read_rnd_buffer_size</span> = <span class="number">32</span>M</span><br></pre></td></tr></table></figure>
 <h2 id="启动mysql服务"><a href="#启动mysql服务" class="headerlink" title="启动mysql服务"></a>启动mysql服务</h2><p>以管理员身份运行cmd,执行</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Program Files\MySQL\MySQL Server 5.6\bin </span><br><span class="line">mysqld -install</span><br><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+<blockquote>
 <ol>
 <li><strong>必须进入mysql的bin文件夹，不管有没有配置过环境变量，也要进入bin文件夹，否则之后启动服务仍然会报错误</strong></li>
 <li><strong>如果不用管理员身份运行，将会因为权限不够而出现错误：Install/Remove of the Service Denied!</strong></li>
 </ol>
+</blockquote>
 <h2 id="安装数据库设计工具"><a href="#安装数据库设计工具" class="headerlink" title="安装数据库设计工具"></a>安装数据库设计工具</h2><p>navicat:  数据库设计工具</p>
-<p>导入项目中的数据库脚本game_store.sql文件</p>
+<p>导入项目中doc目录下的的数据库脚本game_store.sql文件</p>
 <h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><h1 id="远程连接工具"><a href="#远程连接工具" class="headerlink" title="远程连接工具"></a>远程连接工具</h1><h1 id="ftp传输工具"><a href="#ftp传输工具" class="headerlink" title="ftp传输工具"></a>ftp传输工具</h1><h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h1 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h1><h1 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h1><h1 id="mybatis-generator-eclipse插件的安装"><a href="#mybatis-generator-eclipse插件的安装" class="headerlink" title="mybatis generator eclipse插件的安装"></a>mybatis generator eclipse插件的安装</h1><p>mybatis generator 可以提高开发速度，这个插件可以自动生成代码，创建DAO层相关代码。</p>
 <p>打开MyBatis_Generator_1.3.1.zip文件并解压，将解压得到的2个文件夹<code>features</code>和<code>plugins</code> copy到 eclipse的安装目录下。</p>
 
@@ -477,8 +482,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2018/02/26/101-sql优化/" rel="prev" title="Sql优化">
-                Sql优化 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2018/02/26/090-JSP 标准标签库/" rel="prev" title="JSP 标准标签库（JSP Standard Tag Library）">
+                JSP 标准标签库（JSP Standard Tag Library） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -580,8 +585,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -594,8 +597,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/blog/tags/index.html">
                     
-                    
-                      
                     
                       
                     
