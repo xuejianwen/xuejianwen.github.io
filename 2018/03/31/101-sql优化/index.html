@@ -114,7 +114,7 @@
 <meta name="keywords" content="1758,sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sql优化">
-<meta property="og:url" content="http://yoursite.com/2018/03/31/101-sql优化/index.html">
+<meta property="og:url" content="http://fatesx.gitee.io/blog/2018/03/31/101-sql优化/index.html">
 <meta property="og:site_name" content="学习博客">
 <meta property="og:description" content="Sql优化 核心：  sql优化的第一核心思想就是避免全表扫描    竟量使用索引查询，但是建立索引时，要注意，在inster，update，语句执行时，会重建索引。所以一切都要适中就可以了（数据库的读写分离可以避免这个问题）==    sql语句优化的第二，就应该从占用空间去考虑，占用空间越小，就效率高。  sql优化，第三，应该从设计表的结构考虑，能设计为数字的，就设置为num，不要使用cha">
 <meta property="og:locale" content="zh-Hans">
@@ -125,10 +125,12 @@
 
 
 
+  <link rel="alternate" href="/blog/atom.xml" title="学习博客" type="application/atom+xml" />
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/31/101-sql优化/"/>
+
+  <link rel="canonical" href="http://fatesx.gitee.io/blog/2018/03/31/101-sql优化/"/>
 
 
 
@@ -290,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/03/31/101-sql优化/">
+    <link itemprop="mainEntityOfPage" href="http://fatesx.gitee.io/blog/blog/2018/03/31/101-sql优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="fate">
@@ -397,7 +399,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> t <span class="keyword">where</span> <span class="keyword">num</span>=<span class="number">10</span> </span><br><span class="line"><span class="keyword">union</span> all </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> t <span class="keyword">where</span> <span class="keyword">num</span>=<span class="number">20</span></span><br></pre></td></tr></table></figure>
 <p>5.模糊查询也将导致全表扫描：<br>select id from t where name like ‘%abc%’<br>若要提高效率，可以考虑全文检索。 </p>
 <p>6.in 和 not in 也要慎用，否则会导致全表扫描，如：<br>select id from t where num in(1,2,3)<br>对于连续的数值，能用 between 就不要用 in 了：<br>select id from t where num between 1 and 3 </p>
-<ol>
+<ol start="7">
 <li>如果在 where 子句中使用参数，也会导致全表扫描。因为SQL只有在运行时才会解析局部变量，但优化程序不能将访问计划的选择推迟到运行时；它必须在编译时进行选择。然 而，如果在编译时建立访问计划，变量的值还是未知的，因而无法作为索引选择的输入项。如下面语句将进行全表扫描：<br>select id from t where num=@num<br>可以改为强制查询使用索引：<br>select id from t with(index(索引名)) where num=@num </li>
 </ol>
 <p>8.应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描。如：<br>select id from t where num/2=100<br>应改为:<br>select id from t where num=100*2 </p>
@@ -406,7 +408,7 @@
 <p>12.不要写一些没有意义的查询，如需要生成一个空表结构：<br>select col1,col2 into #t from t where 1=0<br>这类代码不会返回任何结果集，但是会消耗系统资源的，应改成这样：<br>create table #t(…) </p>
 <p>13.很多时候用 exists 代替 in 是一个好的选择：<br>select num from a where num in(select num from b)<br>用下面的语句替换：<br>select num from a where exists(select 1 from b where num=a.num) </p>
 <p>14.并不是所有索引对查询都有效，SQL是根据表中数据来进行查询优化的，当索引列有大量数据重复时，SQL查询可能不会去利用索引，如一表中有字段sex，male、female几乎各一半，那么即使在sex上建了索引也对查询效率起不了作用。 </p>
-<ol>
+<ol start="15">
 <li>索引并不是越多越好，索引固然可以提高相应的 select 的效率，但同时也降低了 insert 及 update 的效率，因为 insert 或 update 时有可能会重建索引，所以怎样建索引需要慎重考虑，视具体情况而定。一个表的索引数最好不要超过6个，若太多则应考虑一些不常使用到的列上建的索引是否有 必要。 </li>
 </ol>
 <p>16.应尽可能的避免更新 clustered 索引数据列，因为 clustered 索引数据列的顺序就是表记录的物理存储顺序，一旦该列值改变将导致整个表记录的顺序的调整，会耗费相当大的资源。若应用系统需要频繁更新 clustered 索引数据列，那么需要考虑是否应将该索引建为 clustered 索引。 </p>
@@ -419,7 +421,7 @@
 <p>24.如果使用到了临时表，在存储过程的最后务必将所有的临时表显式删除，先 truncate table ，然后 drop table ，这样可以避免系统表的较长时间锁定。 </p>
 <p>25.尽量避免使用游标，因为游标的效率较差，如果游标操作的数据超过1万行，那么就应该考虑改写。 </p>
 <p>26.使用基于游标的方法或临时表方法之前，应先寻找基于集的解决方案来解决问题，基于集的方法通常更有效。 </p>
-<ol>
+<ol start="27">
 <li>与临时表一样，游标并不是不可使用。对小型数据集使用 FAST_FORWARD 游标通常要优于其他逐行处理方法，尤其是在必须引用几个表才能获得所需的数据时。在结果集中包括“合计”的例程通常要比使用游标执行的速度快。如果开发时 间允许，基于游标的方法和基于集的方法都可以尝试一下，看哪一种方法的效果更好。 </li>
 </ol>
 <p>28.在所有的存储过程和触发器的开始处设置 SET NOCOUNT ON ，在结束时设置 SET NOCOUNT OFF 。无需在执行存储过程和触发器的每个语句后向客户端发送 DONE_IN_PROC 消息。 </p>
@@ -596,13 +598,52 @@
           
 
           
-
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/xuejianwen" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gitee.com/fatesx" target="_blank" title="gitee"><i class="fa fa-fw fa-globe"></i>gitee</a>
+                  
+                </span>
+              
+            </div>
           
 
           
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="/blog/atom.xml" title="Feed" target="_blank">Feed</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="/blog/sitemap.xml" title="SiteMap" target="_blank">SiteMap</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
